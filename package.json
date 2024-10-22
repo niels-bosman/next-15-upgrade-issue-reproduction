@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "workspaces": [
+    "*"
+  ],
+  "version": "1.0.0"
+}

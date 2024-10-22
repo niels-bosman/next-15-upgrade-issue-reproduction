@@ -1,0 +1,31 @@
+{
+  "name": "@niels/package",
+  "description": "...",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/package.umd.cjs",
+  "module": "./dist/package.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/package.js",
+      "require": "./dist/package.umd.cjs"
+    }
+  },
+  "scripts": {
+    "build": "vite build"
+  },
+  "author": "Niels Bosman",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.11",
+    "@vitejs/plugin-react": "4.3.3",
+    "typescript": "5.6.3",
+    "vite": "5.4.9",
+    "vite-plugin-dts": "3.9.1"
+  }
+}
