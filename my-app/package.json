@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "bun run build:editor && bun run build:app",
+    "build": "bun run build:package && bun run build:app",
     "build:app": "next build",
-    "build:editor": "cd ../package && bun run build",
+    "build:package": "cd ../package && bun run build",
     "start": "next start",
     "lint": "next lint"
   },
