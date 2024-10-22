@@ -4,14 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build",
+    "build": "bun run build:editor && bun run build:app",
+    "build:app": "next build",
+    "build:editor": "cd ../package && bun run build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@niels/package": "workspace:*",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "react": "19.0.0-rc-fb9a90fa48-20240614",
+    "react-dom": "19.0.0-rc-fb9a90fa48-20240614",
     "next": "15.0.0"
   },
   "devDependencies": {

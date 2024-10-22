@@ -8,36 +8,39 @@
 ## Steps to reproduce:
 
 1. Run `bun install` in the root of this project
-2. Run `bun run build` in the `./package` folder
-3. Run `bun run dev` in the `./my-app` folder
-4. Open `http://localhost:3000` in your browser
+2. Run `bun run build` in the `./my-app` folder (this builds the package and the next app)
 
 ## Expected behavior:
 
-The app should build and run without errors.
+The app should build, because the dev command also works.
 
 ## Actual behavior:
 
 The app errors with the following message:
 
 ```
-TypeError: Cannot read properties of undefined (reading 'ReactCurrentDispatcher')
-    at http://localhost:3000/_next/static/chunks/%5Bproject%5D__2b8898._.js:209:19
-    at cr (http://localhost:3000/_next/static/chunks/%5Bproject%5D__2b8898._.js:610:6)
-    at [project]/package/dist/package.js [app-client] (ecmascript) (http://localhost:3000/_next/static/chunks/%5Bproject%5D__2b8898._.js:612:90)
-    at http://localhost:3000/_next/static/chunks/%5Bproject%5D_my-app_9044f1._.js:693:27
-    at runModuleExecutionHooks (http://localhost:3000/_next/static/chunks/%5Bproject%5D_my-app_9044f1._.js:738:9)
-    at instantiateModule (http://localhost:3000/_next/static/chunks/%5Bproject%5D_my-app_9044f1._.js:691:9)
-    at getOrInstantiateModuleFromParent (http://localhost:3000/_next/static/chunks/%5Bproject%5D_my-app_9044f1._.js:624:12)
-    at esmImport (http://localhost:3000/_next/static/chunks/%5Bproject%5D_my-app_9044f1._.js:142:20)
-    at [project]/my-app/src/app/page.tsx [app-client] (ecmascript) (http://localhost:3000/_next/static/chunks/%5Bproject%5D__2b8898._.js:631:133)
-    at http://localhost:3000/_next/static/chunks/%5Bproject%5D_my-app_9044f1._.js:693:27
-    at runModuleExecutionHooks (http://localhost:3000/_next/static/chunks/%5Bproject%5D_my-app_9044f1._.js:738:9)
-    at instantiateModule (http://localhost:3000/_next/static/chunks/%5Bproject%5D_my-app_9044f1._.js:691:9)
-    at getOrInstantiateModuleFromParent (http://localhost:3000/_next/static/chunks/%5Bproject%5D_my-app_9044f1._.js:624:12)
-    at commonJsRequire (http://localhost:3000/_next/static/chunks/%5Bproject%5D_my-app_9044f1._.js:157:20)
-    at requireModule (http://localhost:3000/_next/static/chunks/08b5e_next_dist_compiled_107ce8._.js:2675:29)
-    at initializeModuleChunk (http://localhost:3000/_next/static/chunks/08b5e_next_dist_compiled_107ce8._.js:3217:25)
-    at resolveModuleChunk (http://localhost:3000/_next/static/chunks/08b5e_next_dist_compiled_107ce8._.js:3186:43)
-    at http://localhost:3000/_next/static/chunks/08b5e_next_dist_compiled_107ce8._.js:3526:24
+TypeError: Cannot read properties of null (reading 'useContext')
+    at exports.useContext (/Users/niels/Code/SlideSpeak/next-15-issue-repro/node_modules/react/cjs/react.production.js:489:33)
+    at StyleRegistry (/Users/niels/Code/SlideSpeak/next-15-issue-repro/node_modules/styled-jsx/dist/index/index.js:450:30)
+    at Wc (/Users/niels/Code/SlideSpeak/next-15-issue-repro/node_modules/next/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/Users/niels/Code/SlideSpeak/next-15-issue-repro/node_modules/next/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/Users/niels/Code/SlideSpeak/next-15-issue-repro/node_modules/next/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/Users/niels/Code/SlideSpeak/next-15-issue-repro/node_modules/next/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:74:209)
+    at Z (/Users/niels/Code/SlideSpeak/next-15-issue-repro/node_modules/next/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/Users/niels/Code/SlideSpeak/next-15-issue-repro/node_modules/next/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:74:209)
+    at Z (/Users/niels/Code/SlideSpeak/next-15-issue-repro/node_modules/next/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/Users/niels/Code/SlideSpeak/next-15-issue-repro/node_modules/next/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:74:209)
+Failed to build /_error: /404 after 1 attempts.
+
+> Build error occurred
+Error: Export encountered an error on /_error: /404, exiting the build.
+    at exportPageWithRetry (/Users/niels/Code/SlideSpeak/next-15-issue-repro/node_modules/next/dist/export/worker.js:289:31)
+    at async Promise.all (index 0)
+    at async /Users/niels/Code/SlideSpeak/next-15-issue-repro/node_modules/next/dist/export/worker.js:319:35
+    at async Object.exportPages (/Users/niels/Code/SlideSpeak/next-15-issue-repro/node_modules/next/dist/export/worker.js:314:5) {
+  type: 'ExportPageError',
+  code: 'NEXT_EXPORT_PAGE_ERROR'
+}
+   Generating static pages (0/5)  [    ]error: script "build:app" exited with code 1
+
 ```
